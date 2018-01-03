@@ -1,0 +1,2 @@
+# scholar
+Documentation site generator.
