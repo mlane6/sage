@@ -3,5 +3,8 @@ include head
 body
   include header
   main.site-main
-    #{contents}
+    !=contents
+    ul
+      each lore in collections.lore
+        li #{lore.title}
   include footer
