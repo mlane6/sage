@@ -1,0 +1,22 @@
+{
+  "name": "sage",
+  "version": "1.0.0",
+  "description": "Documentation site generator.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bradwaropay/sage.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bradwaropay/sage/issues"
+  },
+  "homepage": "https://github.com/bradwaropay/sage#readme",
+  "dependencies": {
+    "metalsmith": "^2.3.0"
+  }
+}

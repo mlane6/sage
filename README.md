@@ -1,2 +1,2 @@
-# scholar
+# Sage
 Documentation site generator.
