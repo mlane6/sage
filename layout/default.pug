@@ -2,9 +2,14 @@ doctype html
 include head
 body
   include header
-  main.site-main
-    !=contents
-    ul
+  main.sage-main
+    section.sage-section.sage-section--intro
+      h2=title
+      !=contents
+    section.sage-section.sage-section--lore
       each lore in collections.lore
-        li #{lore.title}
+        article.lore
+          h3.lore__title=lore.title
+          p.lore__description=lore.description
+          a(href=lore.path) Learn more &raquo;
   include footer

@@ -8,7 +8,9 @@ const layouts = require('metalsmith-layouts');
 Metalsmith(__dirname)
   .metadata({
     title: "Sage",
-    description: "A simple knowledge base and documentation site generator."
+    description: "A simple knowledge base and documentation static site generator.",
+    organization: "Sage",
+    author: "Brad Waropay"
   })
   .source('./src')
   .destination('./build')
