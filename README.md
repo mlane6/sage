@@ -1,2 +1,2 @@
 # Sage
-Documentation site generator.
+A simple knowledge base and documentation site generator.
