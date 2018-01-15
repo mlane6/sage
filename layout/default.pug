@@ -4,12 +4,12 @@ body
   include header
   main.sage-main
     section.sage-section.sage-section--intro
-      h2=title
       !=contents
-    section.sage-section.sage-section--lore
-      each lore in collections.lore
-        article.lore
-          h3.lore__title=lore.title
-          p.lore__description=lore.description
-          a(href=lore.path) Learn more &raquo;
+    section(class=".sage-section--columns--" + homeColumns).sage-section.sage-section--columns.sage-section--lore
+    - console.log(collections["./src"])
+      each topic in collections["./src"]
+        article.topic
+          h3.topic__title=topic.title
+          p.topic__description=topic.description
+          a(href=topic.path) Learn more &raquo;
   include footer

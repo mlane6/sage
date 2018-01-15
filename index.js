@@ -1,8 +1,8 @@
 const Metalsmith = require('metalsmith');
+const autotoc = require('metalsmith-autotoc');
 const markdown = require('metalsmith-markdown');
 const permalinks = require('metalsmith-permalinks');
-const collections = require('metalsmith-collections');
-const collect = require('metalsmith-auto-collections');
+const collect = require('metalsmith-auto-collections')
 const layouts = require('metalsmith-layouts');
 
 Metalsmith(__dirname)
@@ -14,17 +14,19 @@ Metalsmith(__dirname)
   })
   .source('./src')
   .destination('./build')
-  .use(collections({
-    lore: {
-      pattern: ['*.md', '!index.md'],
-    }
+  .use(collect({
+    pattern: ['*.md', '**/*.md', '!index.md']
   }))
   .use(markdown())
   .use(permalinks())
+  .use(autotoc(
+    {selector: 'h2, h3'}
+  ))
   .use(layouts({
     directory: 'layout',
     engine: 'pug',
-    default: 'default.pug'
+    default: 'default.pug',
+    pretty: true
   }))
   .build(function(err, files) {
     if (err) { throw err; }

@@ -1,0 +1,47 @@
+- let dashTitle = title.replace(/\s+/g, '-').toLowerCase()
+
+- renderToc = (items) => 
+  each item in items
+    li.sage-nav__item
+      a(href="#" + item.id).sage-nav__link=item.text
+      if item.children
+        - renderToc(item.children)
+
+doctype html
+include head
+body
+  include header  
+  main.sage-main
+    section.sage-section.sage-section--navigation
+      nav.sage-nav
+        ul.sage-nav__list
+          li.sage-nav__item
+            a(href="#" + dashTitle).sage-nav__link=title
+          if toc
+            - renderToc(toc)
+    section.sage-section.sage-section--content
+      h1(id=dashTitle).sage-section__title=title
+      !=contents
+
+      each article in collections[dashTitle]
+
+        - let articleDashTitle = article.title.replace(/\s+/g, '-').toLowerCase()
+        
+        article.sage-article
+          header.sage-article__header
+            h2(id=articleDashTitle).sage-article__title=article.title
+            time.sage-article__date=article.lastUpdated
+            span.sage-article__author=article.author
+            if article.tags
+              ul.sage-article__tags
+                each tag in article.tags
+                  li.sage-article__tag
+                    =tag
+          !=article.contents
+          footer.sage-article__footer
+            if article.resources
+              ul.sage-article__resource-list
+                each resource in article.resources
+                  li.sage-article__resource-item
+                    a(href=resource.href).sage-article__resource-link=resource.title
+  include footer
