@@ -1,12 +1,10 @@
 - let dashTitle = title.replace(/\s+/g, '-').toLowerCase()
-
 - renderToc = (items) => 
   each item in items
     li.sage-nav__item
       a(href="#" + item.id).sage-nav__link=item.text
       if item.children
         - renderToc(item.children)
-
 doctype html
 include head
 body
@@ -22,11 +20,8 @@ body
     section.sage-section.sage-section--content
       h1(id=dashTitle).sage-section__title=title
       !=contents
-
       each article in collections[dashTitle]
-
         - let articleDashTitle = article.title.replace(/\s+/g, '-').toLowerCase()
-        
         article.sage-article
           header.sage-article__header
             h2(id=articleDashTitle).sage-article__title=article.title

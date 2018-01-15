@@ -6,7 +6,6 @@ body
     section.sage-section.sage-section--intro
       !=contents
     section(class=".sage-section--columns--" + homeColumns).sage-section.sage-section--columns.sage-section--lore
-    - console.log(collections["./src"])
       each topic in collections["./src"]
         article.topic
           h3.topic__title=topic.title
