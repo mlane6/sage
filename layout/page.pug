@@ -1,10 +1,11 @@
 - let dashTitle = title.replace(/\s+/g, '-').toLowerCase()
 - renderToc = (items) => 
-  each item in items
-    li.sage-nav__item
-      a(href="#" + item.id).sage-nav__link=item.text
-      if item.children
-        - renderToc(item.children)
+    each item in items
+      li.sage-nav__item
+        a(href="#" + item.id).sage-nav__link=item.text
+        if item.children.length > 0
+          ul
+            - renderToc(item.children)
 doctype html
 include head
 body
