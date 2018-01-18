@@ -1,0 +1,5 @@
+$color: #9dc183;
+$colorLight: color($color l(75%));
+$colorDark: color($color l(50%));
+$neutralLight: #eeeeee;
+$neutralDark: #333333;

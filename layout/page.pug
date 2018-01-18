@@ -30,7 +30,6 @@ body
       !=contents
       each article in collections[dashTitle]
         - let articleDashTitle = article.title.replace(/\s+/g, '-').toLowerCase()
-        - console.log(article.toc);
         article.sage-article
           header.sage-article__header
             h2(id=articleDashTitle).sage-article__title=article.title

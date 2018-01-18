@@ -1,3 +1,13 @@
-body {
-  background-color: #ffffff;
+.color {
+  background-color: $color;
+  width: 100px;
+  height: 100px;
+
+  &--light {
+    background-color: $colorLight;
+  }
+
+  &--dark {
+    background-color: $colorDark;
+  }
 }
