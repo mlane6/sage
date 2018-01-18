@@ -1,0 +1,10 @@
+{
+  "plugins": {
+    "autoprefixer": {},
+    "precss": {},
+    "postcss-uncss": {
+      html: ['./build/**/*.html']
+    },
+    "cssnano": {}
+  }
+}

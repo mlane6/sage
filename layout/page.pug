@@ -18,7 +18,7 @@ body
             a(href="#" + dashTitle).sage-nav__link=title
           if toc
             - renderToc(toc)
-    section.sage-section.sage-section--content
+    section.sage-section.sage-content
       h1(id=dashTitle).sage-section__title=title
       !=contents
       each article in collections[dashTitle]

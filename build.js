@@ -19,14 +19,14 @@ Metalsmith(__dirname)
   .use(collect({
     pattern: ['*.md', '**/*.md', '!index.md']
   }))
+  .use(markdown())
+  .use(autotoc({
+    selector: 'h2, h3'
+  }))
   .use(filter([
     '*',
     '!src/**/*.md'
   ]))
-  .use(markdown())
-  .use(autotoc(
-    {selector: 'h2, h3'}
-  ))
   .use(permalinks())
   .use(layouts({
     directory: 'layout',

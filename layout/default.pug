@@ -3,12 +3,12 @@ include head
 body
   include header
   main.sage-main
-    section.sage-section.sage-section--intro
+    section.sage-section.sage-content
       !=contents
-    section(class=".sage-section--columns--" + homeColumns).sage-section.sage-section--columns.sage-section--lore
-      each topic in collections["./src"]
-        article.topic
-          h3.topic__title=topic.title
-          p.topic__description=topic.description
-          a(href=topic.path) Learn more &raquo;
+    section(class=".sage-section--columns--" + homeColumns).sage-topics.sage-section--columns.sage-section
+      each article in collections["./src"]
+        article.sage-topics__article
+          h3.sage-topics__article-title=article.title
+          p.sage-topics__article-description=article.description
+          a(href=article.path) Learn more &raquo;
   include footer
