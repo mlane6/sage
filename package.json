@@ -5,12 +5,12 @@
   "main": "build.js",
   "scripts": {
     "start": "",
-    "start:dev": "npm run build && npm run browser_sync & nodemon --exec 'npm run build && browser-sync reload'",
+    "start:dev": "npm run build && npm run browser_sync | nodemon --exec 'npm run build && browser-sync reload'",
     "browser_sync": "browser-sync start --server build --no-ui --no-notify",
-    "build": "npm run build:content && npm run build:style",
+    "build": "npm run build:content && npm run build:script && npm run build:style",
     "build:content": "node build",
+    "build:script": "rollup -c -m",
     "build:style": "postcss ./style/style.css -o ./build/style/style.css -c",
-    "build:script": "",
     "add:page": "node page",
     "add:section": "node section"
   },
@@ -27,6 +27,8 @@
   "dependencies": {
     "autoprefixer": "^7.2.5",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "cross-env": "^5.1.3",
     "cssnano": "^3.10.0",
     "metalsmith": "^2.3.0",
     "metalsmith-auto-collections": "^0.1.3",
@@ -40,6 +42,10 @@
     "postcss-uncss": "^0.16.1",
     "precss": "^2.0.0",
     "pug": "^2.0.0-rc.4",
+    "rollup": "^0.54.1",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-babili": "^3.1.1",
+    "rollup-plugin-node-resolve": "^3.0.2",
     "uncss": "^0.16.1"
   },
   "devDependencies": {
@@ -61,6 +67,6 @@
     ],
     "env": {
       "NODE_ENV": "development"
+    }
   }
-}
 }
