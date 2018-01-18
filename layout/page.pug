@@ -1,10 +1,10 @@
 - let dashTitle = title.replace(/\s+/g, '-').toLowerCase()
-- renderToc = (items) => 
+- renderToc = (items) =>
     each item in items
       li.sage-nav__item
         a(href="#" + item.id).sage-nav__link=item.text
         if item.children.length > 0
-          ul
+          ul.sage-nav__list
             - renderToc(item.children)
 doctype html
 include head
@@ -18,11 +18,19 @@ body
             a(href="#" + dashTitle).sage-nav__link=title
           if toc
             - renderToc(toc)
+          each article in collections[dashTitle]
+            - let articleDashTitle = article.title.replace(/\s+/g, '-').toLowerCase()
+            li.sage-nav__item
+              a(href="#" + articleDashTitle).sage-nav__link=article.title
+              if article.toc
+                ul.sage-nav__list
+                  - renderToc(article.toc)
     section.sage-section.sage-content
       h1(id=dashTitle).sage-section__title=title
       !=contents
       each article in collections[dashTitle]
         - let articleDashTitle = article.title.replace(/\s+/g, '-').toLowerCase()
+        - console.log(article.toc);
         article.sage-article
           header.sage-article__header
             h2(id=articleDashTitle).sage-article__title=article.title

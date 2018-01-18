@@ -16,5 +16,8 @@ resources: [
     href: "#"
   }
 ]
+autotoc: true
 ---
+
+### This is a test heading.
 This is the guidelines test 1 section.
