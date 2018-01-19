@@ -1,13 +1,105 @@
-.color {
-  background-color: $color;
-  width: 100px;
-  height: 100px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
 
-  &--light {
-    background-color: $colorLight;
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: $neutralDark;
+  display: flex;
+  flex-direction: column;
+  font-family: $fontPrimary;
+  font-weight: 400;
+}
+
+h1,h2,h3 {
+  font-family: $fontSecondary;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+a {
+  color: $color;
+
+  &:hover {
+    color: $colorDark;
+  }
+}
+
+.sage-header,
+.sage-main,
+.sage-footer {
+  padding: 1rem;
+  width: 100%;
+}
+
+.sage-header {
+  background: linear-gradient(90deg, $colorLight, $color, $colorDark);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+
+  &__home {
+    color: $neutralDark;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+
+.sage-main {
+  flex-grow: 1;
+  max-width: 45rem;
+  margin: 0 auto;
+}
+
+.sage-logo {
+  display: block;
+  max-width: 6rem;
+  margin: 0 auto 2rem;
+}
+
+.sage-section {
+  margin-bottom: 2rem;
+
+  strong {
+    font-weight: 700;
   }
 
-  &--dark {
-    background-color: $colorDark;
+  &--columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+  }
+}
+
+.sage-topics {
+
+  &__article {
+    border: 1px solid $colorLight;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 2rem;
+  }
+
+  &__article-title {
+    margin-bottom: .5rem;
+  }
+
+  &__article-description {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+  }
+}
+
+.sage-footer {
+  background-color: $colorDark;
+  color: $neutralLight;
+
+  &__copyright {
+    margin: 0;
   }
 }

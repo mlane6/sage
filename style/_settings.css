@@ -1,5 +1,12 @@
+/* Colors */
 $color: #9dc183;
 $colorLight: color($color l(75%));
 $colorDark: color($color l(50%));
-$neutralLight: #eeeeee;
+$neutralLight: #ffffff;
 $neutralDark: #333333;
+
+/* Typography */
+$fontPrimary: 'Cabin', sans-serif;
+$fontSecondary: 'Arvo', serif;
+
+/* Layout and Vertical Rhythm */

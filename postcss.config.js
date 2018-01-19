@@ -1,7 +1,7 @@
 let plugs = [
   require('autoprefixer'),
   require('precss'),
-  require('cssnano'),
+  require('cssnano')
 ];
 
 if (process.env.NODE_ENV === 'production') {

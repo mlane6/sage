@@ -3,15 +3,40 @@ include head
 body
   include header
   main.sage-main
-    .color.color--light
-    .color
-    .color.color--dark
     section.sage-section.sage-content
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 137.74 285.51" class="sage-logo">
+        <defs>
+          <linearGradient id="a" x1="237.63" y1="372.48" x2="374.37" y2="372.48" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#78aa55"/>
+            <stop offset="0.5" stop-color="#9dc183"/>
+            <stop offset="1" stop-color="#bcd4aa"/>
+          </linearGradient>
+        </defs>
+        <title>Sage</title>
+        <g>
+          <path d="M306,254a136.78,136.78,0,0,0,0,236.89A136.78,136.78,0,0,0,306,254Z" transform="translate(-237.13 -253.45)" style="stroke: #fff;stroke-miterlimit: 10;fill: url(#a)"/>
+          <polyline points="118.99 187.28 68.87 237.41 18.75 187.28" style="fill: none;stroke: #fff;stroke-miterlimit: 10"/>
+          <polyline points="132.86 153.41 68.87 217.41 4.88 153.41" style="fill: none;stroke: #fff;stroke-miterlimit: 10"/>
+          <polyline points="136.84 129.44 68.87 197.41 0.9 129.44" style="fill: none;stroke: #fff;stroke-miterlimit: 10"/>
+          <polyline points="136.9 109.37 68.87 177.41 0.84 109.37" style="fill: none;stroke: #fff;stroke-miterlimit: 10"/>
+          <polyline points="134.52 91.76 68.87 157.41 3.23 91.76" style="fill: none;stroke: #fff;stroke-miterlimit: 10"/>
+          <polyline points="130.31 75.97 68.87 137.41 7.44 75.97" style="fill: none;stroke: #fff;stroke-miterlimit: 10"/>
+          <polyline points="124.65 61.63 68.87 117.41 13.1 61.63" style="fill: none;stroke: #fff;stroke-miterlimit: 10"/>
+          <polyline points="117.7 48.57 68.87 97.41 20.04 48.57" style="fill: none;stroke: #fff;stroke-miterlimit: 10"/>
+          <polyline points="109.63 36.65 68.87 77.41 28.11 36.65" style="fill: none;stroke: #fff;stroke-miterlimit: 10"/>
+          <polyline points="100.5 25.78 68.87 57.41 37.24 25.78" style="fill: none;stroke: #fff;stroke-miterlimit: 10"/>
+          <polyline points="90.34 15.94 68.87 37.41 47.4 15.94" style="fill: none;stroke: #fff;stroke-miterlimit: 10"/>
+          <polyline points="79.13 7.15 68.87 17.41 58.62 7.15" style="fill: none;stroke: #fff;stroke-miterlimit: 10"/>
+          <line x1="68.87" y1="237.47" x2="68.87" y2="0.58" style="fill: none;stroke: #fff;stroke-miterlimit: 10"/>
+          <polygon points="66.24 285.01 68.37 237.38 69.37 237.38 71.5 285.01 66.24 285.01" style="fill: #9cc182"/>
+          <path d="M306,490.86,308.11,538h-4.22L306,490.86m1,0h-2l-2.11,47.11,0,1h6.31l0-1L307,490.81Z" transform="translate(-237.13 -253.45)" style="fill: #fff"/>
+        </g>
+      </svg>
       !=contents
     section(class=".sage-section--columns--" + homeColumns).sage-topics.sage-section--columns.sage-section
       each article in collections["./src"]
         article.sage-topics__article
           h3.sage-topics__article-title=article.title
           p.sage-topics__article-description=article.description
-          a(href=article.path) Learn more &raquo;
+          a(href=article.path).sage-topics__article-link Learn more &raquo;
   include footer
