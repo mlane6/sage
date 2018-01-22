@@ -1,29 +1,21 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-html,
-body {
-  height: 100%;
-}
-
 body {
   color: $neutralDark;
-  display: flex;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   flex-direction: column;
   font-family: $fontPrimary;
   font-weight: 400;
+  @mixin font-rhythm;
 }
 
-h1,h2,h3 {
+h1,h2,h3,h4 {
   font-family: $fontSecondary;
-  margin-bottom: 1rem;
   font-weight: 700;
 }
 
 a {
   color: $color;
+  transition: color .2s ease-out;
 
   &:hover {
     color: $colorDark;
@@ -31,73 +23,179 @@ a {
 }
 
 .sage-header,
-.sage-main,
 .sage-footer {
-  padding: 1rem;
   width: 100%;
+  @mixin property-rhythm padding, .75;
 }
 
 .sage-header {
+  align-items: center;
   background: linear-gradient(90deg, $colorLight, $color, $colorDark);
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  @mixin property-rhythm margin-bottom, 1.75;
 
   &__home {
-    color: $neutralDark;
+    color: $neutralLight;
     font-weight: bold;
     text-decoration: none;
+    @mixin font-rhythm 1.5, 1/$baseLineHeight;
+  }
+}
+
+.sage-search {
+  display: flex;
+  width: 100%;
+  @mixin property-rhythm max-width, 10;
+
+  &__input,
+  &__submit {
+    @mixin property-rhythm padding, .25;
+    @mixin font-rhythm .75, 1/$baseLineHeight;
+  }
+
+  &__input {
+    border: none;
+    width: 100%;
+  }
+
+  &__submit {
+    background-color: $colorLight;
+    color: $neutralLight;
+    transition: background-color .2s ease-out,
+                color .2s ease-out;
+
+    &:hover,
+    &:active {
+      background-color: $color;
+    }
+
+    &:active {
+      color: $colorDark;
+    }
   }
 }
 
 .sage-main {
-  flex-grow: 1;
+  width: 100%;
   max-width: 45rem;
   margin: 0 auto;
+  @mixin property-rhythm padding-right;
+  @mixin property-rhythm padding-left;
+
+  &--has-nav {
+    display: grid;
+    grid-template-columns: 1fr 45rem;
+    max-width: 60rem;
+    @mixin property-rhythm grid-gap;
+  }
+
+  h1 {
+    @mixin font-rhythm 2;
+  }
+
+  h2 {
+    @mixin font-rhythm 1.5;
+  }
+
+  h3 {
+    @mixin font-rhythm;
+  }
 }
 
 .sage-logo {
   display: block;
-  max-width: 6rem;
-  margin: 0 auto 2rem;
+  margin: 0 auto;
+  @mixin property-rhythm margin-bottom;
+  @mixin property-rhythm max-width, 2;
 }
 
 .sage-section {
-  margin-bottom: 2rem;
+  @mixin property-rhythm margin-bottom, 1.5;
 
-  strong {
-    font-weight: 700;
+  &:last-of-type {
+    @mixin property-rhythm margin-bottom, 3.5;
   }
 
   &--columns {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     grid-gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &--navigation {
+    width: 100%;
+    max-width: 15rem;
+  }
+
+  strong {
+    font-weight: 700;
   }
 }
 
 .sage-topics {
 
-  &__article {
+  &__link {
     border: 1px solid $colorLight;
+    color: $neutralDark;
     display: flex;
     flex-direction: column;
-    padding: 1.5rem 2rem;
+    position: relative;
+    text-decoration: none;
+    transition: background-color .2s ease-out,
+                border-color .2s ease-out,
+                color .2s ease-out;
+    @mixin property-rhythm padding-top, .5;
+    @mixin property-rhythm padding-right;
+    @mixin property-rhythm padding-bottom, .5;
+    @mixin property-rhythm padding-left;
+
+    &:hover {
+      background-color: $colorLight;
+      border-color: $colorDark;
+      color: $neutralDark;
+
+      &::before {
+        border-color: transparent $colorDark transparent transparent;
+      }
+    }
+
+    &:active {
+      background-color: $colorDark;
+      border-color: $color;
+      color: $neutralDark;
+
+      &::before {
+        border-color: transparent $color transparent transparent;
+      }
+    }
+
+    &::before {
+      content: "";
+      border-color: transparent $colorLight transparent transparent;
+      border-style: solid;
+      border-top-width: 0;
+      border-left-width: 0;
+      height: 0;
+      position: absolute;
+      width: 0;
+      transition: border-color .2s ease-out;
+      @mixin property-rhythm border-right-width, .5;
+      @mixin property-rhythm border-bottom-width, .5;
+      @mixin property-rhythm top, .5;
+      @mixin property-rhythm right, .5;
+    }
   }
 
-  &__article-title {
-    margin-bottom: .5rem;
-  }
-
-  &__article-description {
-    flex-grow: 1;
-    margin-bottom: 1rem;
+  &__description {
+    @mixin font-rhythm .75;
   }
 }
 
 .sage-footer {
   background-color: $colorDark;
   color: $neutralLight;
+  @mixin font-rhythm .75;
 
   &__copyright {
     margin: 0;

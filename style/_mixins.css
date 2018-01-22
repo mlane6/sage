@@ -1,0 +1,8 @@
+@define-mixin property-rhythm $property, $rhythmMultiplier : 1, $unit : rem {
+  $(property): calc($(rhythmMultiplier)$(unit) * $baseLineHeight);
+}
+
+@define-mixin font-rhythm $fontSize : 1, $rhythmMultiplier : 1, $unit : rem {
+  font-size: calc($(baseFontSize) * $(fontSize)$(unit));
+  line-height: calc($rhythmMultiplier * $baseLineHeight);
+}

@@ -34,9 +34,8 @@ body
       </svg>
       !=contents
     section(class=".sage-section--columns--" + homeColumns).sage-topics.sage-section--columns.sage-section
-      each article in collections["./src"]
-        article.sage-topics__article
-          h3.sage-topics__article-title=article.title
-          p.sage-topics__article-description=article.description
-          a(href=article.path).sage-topics__article-link Learn more &raquo;
+      each topic in collections["./src"]
+        a(href=topic.path).sage-topics__link
+          h3.sage-topics__title=topic.title
+          p.sage-topics__description=topic.description
   include footer

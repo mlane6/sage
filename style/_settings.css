@@ -2,11 +2,13 @@
 $color: #9dc183;
 $colorLight: color($color l(75%));
 $colorDark: color($color l(50%));
+
 $neutralLight: #ffffff;
 $neutralDark: #333333;
 
 /* Typography */
+$baseFontSize: 1.3;
+$baseLineHeight: 1.8;
+
 $fontPrimary: 'Cabin', sans-serif;
 $fontSecondary: 'Arvo', serif;
-
-/* Layout and Vertical Rhythm */
